@@ -1,0 +1,334 @@
+----Top Ten Highest Average Award----
+
+    {
+      "ope_id": "4262200"
+      "name": "ELYON COLLEGE",
+      "city": "BROOKLYN",
+      "state": "NY",
+      "type": "Private 2yr",
+      "totalGrant": 140375,
+      "numStudents": 16,
+      "averageAmount": 8773.0
+    }
+
+    {
+      "ope_id": "4124600"
+      "name": "PROFESSIONAL ACADEMY OF COSMETOLOGY",
+      "city": "NORRISTOWN",
+      "state": "PA",
+      "type": "Proprietary 2yr",
+      "totalGrant": 8222,
+      "numStudents": 1,
+      "averageAmount": 8222.0
+    }
+
+    {
+      "ope_id": "4192800"
+      "name": "BE'ER YAAKOV TALMUDIC SEMINARY",
+      "city": "SPRING VALLEY",
+      "state": "NY",
+      "type": "Private 4yr",
+      "totalGrant": 3953114,
+      "numStudents": 481,
+      "averageAmount": 8219.0
+    }
+
+    {
+      "ope_id": "4259000"
+      "name": "YESHIVA SHAAR EPHRAIM",
+      "city": "MONSEY",
+      "state": "NY",
+      "type": "Private 4yr",
+      "totalGrant": 500500,
+      "numStudents": 62,
+      "averageAmount": 8073.0
+    }
+
+    {
+      "ope_id": "4172000"
+      "name": "SOUTHERN CALIFORNIA UNIVERSITY SOMA",
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "type": "Proprietary 4yr",
+      "totalGrant": 7892,
+      "numStudents": 1,
+      "averageAmount": 7892.0
+    }
+
+    {
+      "ope_id": "3077500"
+      "name": "RABBI JACOB JOSEPH SCHOOL",
+      "city": "EDISON",
+      "state": "NJ",
+      "type": "Private 4yr",
+      "totalGrant": 169983,
+      "numStudents": 22,
+      "averageAmount": 7727.0
+    }
+
+    {
+      "ope_id": "1118900"
+      "name": "UNITED TALMUDICAL SEMINARY",
+      "city": "BROOKLYN",
+      "state": "NY",
+      "type": "Private 4yr",
+      "totalGrant": 13136759,
+      "numStudents": 1711,
+      "averageAmount": 7678.0
+    }
+
+    {
+      "ope_id": "543800"
+      "name": "SALINE COUNTY CAREER CENTER",
+      "city": "MARSHALL",
+      "state": "MO",
+      "type": "Public 2yr",
+      "totalGrant": 143321,
+      "numStudents": 19,
+      "averageAmount": 7543.0
+    }
+
+    {
+      "ope_id": "4264900"
+      "name": "YESHIVA CHEMDAS HATORAH",
+      "city": "LAKEWOOD",
+      "state": "NJ",
+      "type": "Private 4yr",
+      "totalGrant": 300261,
+      "numStudents": 40,
+      "averageAmount": 7507.0
+    }
+
+    {
+      "ope_id": "933500"
+      "name": "MESIVTA EASTERN PKWY RABBINICAL CLG",
+      "city": "BROOKLYN",
+      "state": "NY",
+      "type": "Private 4yr",
+      "totalGrant": 171820,
+      "numStudents": 23,
+      "averageAmount": 7470.0
+    }
+----Top Ten Lowest Average Award----
+
+    {
+      "ope_id": "3080000"
+      "name": "NEWPORT SCHOOL OF HAIRDRESSING",
+      "city": "PAWTUCKET",
+      "state": "RI",
+      "type": "Proprietary 2yr",
+      "totalGrant": 513,
+      "numStudents": 1,
+      "averageAmount": 513.0
+    }
+
+    {
+      "ope_id": "215700"
+      "name": "HEBREW COLLEGE",
+      "city": "NEWTON CENTRE",
+      "state": "MA",
+      "type": "Private 4yr",
+      "totalGrant": 1035,
+      "numStudents": 1,
+      "averageAmount": 1035.0
+    }
+
+    {
+      "ope_id": "4243800"
+      "name": "ABRAHAM LINCOLN UNIVERSITY",
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "type": "Proprietary 4yr",
+      "totalGrant": 1162,
+      "numStudents": 1,
+      "averageAmount": 1162.0
+    }
+
+    {
+      "ope_id": "4164300"
+      "name": "GLOBAL INSTITUTE",
+      "city": "CAGUAS",
+      "state": "PR",
+      "type": "Proprietary 2yr",
+      "totalGrant": 14138,
+      "numStudents": 12,
+      "averageAmount": 1178.0
+    }
+
+    {
+      "ope_id": "2557800"
+      "name": "ART INSTITUTE OF YORK (THE) - PENNSYLVAN",
+      "city": "YORK",
+      "state": "PA",
+      "type": "Proprietary 4yr",
+      "totalGrant": 2831,
+      "numStudents": 2,
+      "averageAmount": 1416.0
+    }
+
+    {
+      "ope_id": "3763300"
+      "name": "MEDICAL PROFESSIONAL INSTITUTE",
+      "city": "MALDEN",
+      "state": "MA",
+      "type": "Proprietary 2yr",
+      "totalGrant": 13293,
+      "numStudents": 9,
+      "averageAmount": 1477.0
+    }
+
+    {
+      "ope_id": "4140000"
+      "name": "GLOBAL HEALTH COLLEGE",
+      "city": "ALEXANDRIA",
+      "state": "VA",
+      "type": "Proprietary 4yr",
+      "totalGrant": 86088,
+      "numStudents": 56,
+      "averageAmount": 1537.0
+    }
+
+    {
+      "ope_id": "2092400"
+      "name": "RIDLEY-LOWELL SCHOOL OF BUSINESS",
+      "city": "BINGHAMTON",
+      "state": "NY",
+      "type": "Proprietary 2yr",
+      "totalGrant": 14472,
+      "numStudents": 9,
+      "averageAmount": 1608.0
+    }
+
+    {
+      "ope_id": "4140500"
+      "name": "HORIZON UNIVERSITY",
+      "city": "SAN DIEGO",
+      "state": "CA",
+      "type": "Private 4yr",
+      "totalGrant": 16108,
+      "numStudents": 10,
+      "averageAmount": 1611.0
+    }
+
+    {
+      "ope_id": "3007900"
+      "name": "GALLIPOLIS CAREER COLLEGE",
+      "city": "GALLIPOLIS",
+      "state": "OH",
+      "type": "Proprietary 2yr",
+      "totalGrant": 34780,
+      "numStudents": 21,
+      "averageAmount": 1656.0
+    }
+
+----Top Ten Most Number Of Students----
+
+    {
+      "ope_id": "2506100"
+      "name": "CITY UNIV OF NEW YORK-CENTRAL",
+      "city": "NEW YORK",
+      "state": "NY",
+      "type": "Public 4yr",
+      "totalGrant": 638084191,
+      "numStudents": 144380,
+      "averageAmount": 4419.0
+    }
+
+    {
+      "ope_id": "878800"
+      "name": "STATE UNIVERSITY OF NEW YORK STUDENT LOA",
+      "city": "ALBANY",
+      "state": "NY",
+      "type": "Public 4yr",
+      "totalGrant": 323088922,
+      "numStudents": 70694,
+      "averageAmount": 4570.0
+    }
+
+    {
+      "ope_id": "2098800"
+      "name": "UNIVERSITY OF PHOENIX",
+      "city": "PHOENIX",
+      "state": "AZ",
+      "type": "Proprietary 4yr",
+      "totalGrant": 197213991,
+      "numStudents": 51990,
+      "averageAmount": 3793.0
+    }
+
+    {
+      "ope_id": "258000"
+      "name": "SOUTHERN NEW HAMPSHIRE UNIVERSITY",
+      "city": "MANCHESTER",
+      "state": "NH",
+      "type": "Private 4yr",
+      "totalGrant": 102703607,
+      "numStudents": 43067,
+      "averageAmount": 2385.0
+    }
+
+    {
+      "ope_id": "150600"
+      "name": "MIAMI DADE COLLEGE ADMINISTRATION ONLY",
+      "city": "MIAMI",
+      "state": "FL",
+      "type": "Public 4yr",
+      "totalGrant": 150576137,
+      "numStudents": 35939,
+      "averageAmount": 4190.0
+    }
+
+    {
+      "ope_id": "3339400"
+      "name": "WESTERN GOVERNORS UNIVERSITY",
+      "city": "SALT LAKE CITY",
+      "state": "UT",
+      "type": "Private 4yr",
+      "totalGrant": 130642066,
+      "numStudents": 35789,
+      "averageAmount": 3650.0
+    }
+
+    {
+      "ope_id": "108100"
+      "name": "ARIZONA STATE UNIV (ALL CAMPUSES)",
+      "city": "TEMPE",
+      "state": "AZ",
+      "type": "Public 4yr",
+      "totalGrant": 142197919,
+      "numStudents": 35188,
+      "averageAmount": 4041.0
+    }
+
+    {
+      "ope_id": "107400"
+      "name": "GRAND CANYON UNIVERSITY",
+      "city": "PHOENIX",
+      "state": "AZ",
+      "type": "Proprietary 4yr",
+      "totalGrant": 145412708,
+      "numStudents": 35127,
+      "averageAmount": 4140.0
+    }
+
+    {
+      "ope_id": "991700"
+      "name": "IVY TECH COMMUNITY COLLEGE OF INDIANA",
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "type": "Public 2yr",
+      "totalGrant": 109178322,
+      "numStudents": 34633,
+      "averageAmount": 3152.0
+    }
+
+    {
+      "ope_id": "188100"
+      "name": "ASHFORD UNIVERSITY",
+      "city": "SAN DIEGO",
+      "state": "CA",
+      "type": "Proprietary 4yr",
+      "totalGrant": 127778407,
+      "numStudents": 31308,
+      "averageAmount": 4081.0
+    }
