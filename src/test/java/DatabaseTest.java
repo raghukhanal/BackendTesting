@@ -1,67 +1,79 @@
-//import org.junit.*;
-//
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.ResultSet;
-//import java.sql.Statement;
-//
-//public class DatabaseTest {
-//    private static Dealership dealership;
-//    private static Connection c;
-//    private final static String URL = "jdbc:sqlite:pellgrant.db";
-//
-//    @BeforeClass
-//    public static void connectDatabase()  throws Exception {
-//        c = DriverManager.getConnection(URL);
-//        dealership = new Dealership();
-//    }
-//
-//    public int countRows() {
-//        int count = 0;
-//        try {
-//            Statement s = c.createStatement();
-//            ResultSet set = s.executeQuery("Select count(*) from vehicles");
-//            count = set.getInt("count(*)");
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return count;
-//    }
-//
-//    @Test
-//    public void testAddVehicleToDB() {
-//        int current = countRows();
-//        Vehicle v = new Vehicle("Subaru", "Forester", 2020, true, 30000, 20);
-//        dealership.addVehicleToDatabase(c,v);
-//        Assert.assertEquals(current+1, countRows());
-//    }
-//
-//    @Test
-//    @Ignore
-//    public void testTableRows() throws Exception {
-//        Statement st = c.createStatement();
-//        String sql = "select * from vehicles";
-//
-//        ResultSet set = st.executeQuery(sql);
-//        System.out.println(set.toString());
-//        Assert.assertNotNull(set);
-//
-//        while (set.next()){
-//            Assert.assertNotNull(set.getString("make"));
-//            Assert.assertNotNull(set.getString("price"));
-////            System.out.println(set.getString("make"));
-////            System.out.println(set.getFloat("price"));
-//        }
-//        ResultSet set2 = st.executeQuery("select count(*) from vehicles");
-//        set2.next();
-//        Assert.assertEquals(5, set2.getInt("count(*)"));
-//    }
-//
-//    @AfterClass
-//    public static void disconnectDatabase() throws Exception {
-//        if(c != null){
-//            c.close();
-//        }
-//    }
-//}
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DatabaseTest {
+    private static Connection c;
+    private GrantRecipients g;
+    private List<Institution> institutions;
+
+    @BeforeClass
+    public static void setUPDB() {
+        try {
+            c = DriverManager.getConnection("jdbc:sqlite:pellgrant.db");
+            Statement s = c.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Before
+    public void setUp(){
+        g = new GrantRecipients();
+        institutions = new ArrayList<>();
+    }
+
+
+    private int getTotalRows(Connection c) throws Exception {
+        Statement s = c.createStatement();
+        ResultSet set = s.executeQuery("select count() from institutions");
+        int rows = set.getInt("count()");
+        return rows;
+    }
+
+    @Test
+    public void testTotalRows() throws Exception{
+        Assert.assertEquals(822, getTotalRows(c));
+    }
+
+    @Test
+    public void testAddToDatabaseFromInstitutions()
+    {
+        Institution institution = new Institution(5159,"test","test","test","test",3.0,3);
+        Institution institution2 = new Institution(5160,"test2","test2","test2","test2",3.0,3);
+        Institution institution3 = new Institution(5161,"test3","test3","test3","test3",3.0,3);
+        institutions.add(institution);
+        institutions.add(institution2);
+        institutions.add(institution3);
+        g.setInstitutions(institutions);
+
+        try {
+            int before = getTotalRows(c);
+            g.addToDatabaseFromInstitutions(c);
+            int after = getTotalRows(c);
+            Assert.assertEquals(before + institutions.size(), after);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testAddToDatabaseFromJSON(){
+
+        try {
+            int before = getTotalRows(c);
+            g.addToDatabaseFromJSON(c,"test.json");
+            int after = getTotalRows(c);
+            Assert.assertEquals(before + 3 , after);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+    }
+}

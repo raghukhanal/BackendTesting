@@ -15,8 +15,11 @@ public class GrantRecipients {
     private Set<String> states = new HashSet<>();
     private List<Institution> institutions = new ArrayList<>();
     private Map<String, List<Institution>> pellGrant = new TreeMap<>();
-    private Connection c;
-    private final String URL = "jdbc:sqlite:pellgrant.db";
+
+
+    public GrantRecipients() {
+        this.institutions = new ArrayList<>();
+    }
 
     public GrantRecipients(String linkTSV) throws Exception
     {
@@ -48,15 +51,14 @@ public class GrantRecipients {
             if (!ope_id.equals("")) {
                 Institution inst = new Institution(ope_id, inst_name, inst_city, inst_state, type, totalGrant, numStudents);
                 institutions.add(inst);
-                states.add(inst_state); //takes the state name --> adds unique state to states
             }
         }
 
     }
 
 
-    public void parseToJSON() throws Exception{
-        File file = new File("pell.json");
+    public void parseToJSON(String filename) throws Exception{
+        File file = new File(filename);
         FileUtils.writeStringToFile(file,"{", "UTF-8", true);
         int j=0;
         for(Map.Entry<String,List<Institution>> entry : getPellGrant().entrySet()) {
@@ -82,9 +84,8 @@ public class GrantRecipients {
     }
 
 
-    public void addToDatabaseFromInstitutions() {
+    public void addToDatabaseFromInstitutions(Connection c) {
         try {
-            c = DriverManager.getConnection(URL);
             Statement s = c.createStatement();
             for (Institution inst : getInstitutions()) {
                 String sql = "insert into institutions values " +
@@ -104,13 +105,12 @@ public class GrantRecipients {
         }
     }
 
-    public void addToDatabaseFromJSON(String jsonFile) throws Exception {
+    public void addToDatabaseFromJSON(Connection c, String jsonFile) throws Exception {
         File file = new File(jsonFile);
         FileReader read = new FileReader(file.getAbsoluteFile());
         JSONParser parser = new JSONParser();
 
         try {
-            c = DriverManager.getConnection(URL);
             Statement s = c.createStatement();
 
             Object pellgrant = parser.parse(read);
@@ -151,6 +151,7 @@ public class GrantRecipients {
 
     public ArrayList<Institution> getTopTenHighestAverageAward(){
         System.out.println("----Top Ten Highest Average Award----");
+
 //        Comparator<Institution> rankOrder = (Institution o1, Institution o2) -> o1.getAverage() - o2.getAverage();
         return getTopTenInstitutionsReverseSorted(Comparator.comparingInt(Institution::getAverage));
     }
@@ -169,18 +170,19 @@ public class GrantRecipients {
     private ArrayList<Institution> getTopTenInstitutionsReverseSorted(Comparator<Institution> institutionComparator) {
         getInstitutions().sort(institutionComparator);
         Collections.reverse(getInstitutions());
-        return getTopTenInstitutions(institutionComparator);
+        return getTopTenInstitutions();
     }
     private ArrayList<Institution> getTopTenInstitutionsSorted(Comparator<Institution> institutionComparator) {
         getInstitutions().sort(institutionComparator);
-        return getTopTenInstitutions(institutionComparator);
+        return getTopTenInstitutions();
     }
 
-    private ArrayList<Institution> getTopTenInstitutions(Comparator<Institution> institutionComparator) {
+    private ArrayList<Institution> getTopTenInstitutions() {
         ArrayList<Institution> topTenInstitutions = new ArrayList<>();
         for(int i = 0; i < 10; i++) {
             topTenInstitutions.add(getInstitutions().get(i));
         }
+        System.out.println(topTenInstitutions);
         return topTenInstitutions;
     }
 
@@ -188,7 +190,15 @@ public class GrantRecipients {
         return this.institutions;
     }
 
-    public Set<String> getStates() {
+    public void setInstitutions(List<Institution> institutions) {
+        this.institutions.addAll(institutions);
+    }
+
+    public Set<String> getStates()
+    {
+        for (Institution inst: getInstitutions()) {
+            states.add(inst.getInst_state()); //takes the state name --> adds unique state to states
+        }
         return this.states;
     }
 
@@ -210,19 +220,20 @@ public class GrantRecipients {
 
 
     public static void main(String[] arg) throws Exception {
+        Connection c = DriverManager.getConnection("jdbc:sqlite:pellgrant.db");;
         String link = "https://gist.githubusercontent.com/tacksoo/b32d630c2e5c7dcd8ebeb2fc67e9c7ae/raw/72b6bae956dfb3eeb66fa277f63ce8acb784fd01/pell.tsv";
         GrantRecipients r = new GrantRecipients(link);
-//        r.parseToJSON();
-        r.addToDatabaseFromInstitutions();
-//        r.addToDatabaseFromJSON("pell.json");
+        r.parseToJSON("pell.json");
+        r.addToDatabaseFromInstitutions(c);
+        r.addToDatabaseFromJSON(c,"pell.json");
 
 
-        //Adding the top ten institutions to the text file
-//        PrintStream stream = new PrintStream("pell-answers.txt");
-//        System.setOut(stream);
-//        System.out.println(r.getTopTenHighestAverageAward());
-//        System.out.println(r.getTopTenLowestAverageAward());
-//        System.out.println(r.getTopTenMostNumStu());
+//        Adding the top ten institutions to the text file
+        PrintStream stream = new PrintStream("pell-answers.txt");
+        System.setOut(stream);
+        System.out.println(r.getTopTenHighestAverageAward());
+        System.out.println(r.getTopTenLowestAverageAward());
+        System.out.println(r.getTopTenMostNumStu());
 
     }
 
